@@ -1,13 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        VERSION = readMavenPom().getVersion()
-        DOCKER_REPO = readMavenPom().getProperties().getProperty('docker.repository')
-        IMAGE_NAME = readMavenPom().getArtifactId()
-
-    }
-
     stages {
 
         stage('Sonar Quality Status') {
